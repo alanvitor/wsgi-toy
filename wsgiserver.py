@@ -2,6 +2,8 @@ import socket
 import StringIO
 import sys
 
+from datetime import datetime
+
 
 class WSGIServer(object):
 
@@ -78,7 +80,7 @@ class WSGIServer(object):
 
     def start_response(self, status, response_headers, exc_info=None):
         server_headers = [
-            ('Date', 'Tue, 31 Mar 2015 12:54:48 GMT'),
+            ('Date', datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S")),
             ('Server', 'WSGIServer 0.2'),
         ]
         self.headers_set = [status, response_headers + server_headers]

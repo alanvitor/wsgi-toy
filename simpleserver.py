@@ -16,7 +16,7 @@ while True:
     response = """\
 HTTP/1.1 200 OK
 
-Toy Server
+Toy Web Server
 """
     conn.sendall(response)
     conn.close()
