@@ -77,16 +77,12 @@ class WSGIServer(object):
         return env
 
     def start_response(self, status, response_headers, exc_info=None):
-        # Add necessary server headers
         server_headers = [
             ('Date', 'Tue, 31 Mar 2015 12:54:48 GMT'),
             ('Server', 'WSGIServer 0.2'),
         ]
         self.headers_set = [status, response_headers + server_headers]
-        # To adhere to WSGI specification the start_response must return
-        # a 'write' callable. We simplicity's sake we'll ignore that detail
-        # for now.
-        # return self.finish_response
+
 
     def finish_response(self, result):
         try:
@@ -97,7 +93,6 @@ class WSGIServer(object):
             response += '\r\n'
             for data in result:
                 response += data
-            # Print formatted response data a la 'curl -v'
             print(''.join(
                 '> {line}\n'.format(line=line)
                 for line in response.splitlines()
