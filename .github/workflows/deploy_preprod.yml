@@ -1,14 +1,13 @@
 name: Deploy PreProd
 
-on:
-  workflow_dispatch
-  push:
-    branches:
-      - preprod
+on: workflow_dispatch
+  # push:
+  #   branches:
+  #     - preprod
 
 jobs:
   build_n_deploy:
-    runs-on: [ubuntu-22.04]
+    runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/preprod'
     steps:
       - name: setup
