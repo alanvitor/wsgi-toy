@@ -1,6 +1,9 @@
 name: Deploy PreProd
 
-on: [push]
+on:
+  push:
+    branches:
+      - preprod
 
 jobs:
   build_n_deploy:
@@ -13,3 +16,4 @@ jobs:
       - name: deploy
         run: |
           echo "Deploy from preprod"
+          cat README.md
