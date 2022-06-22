@@ -4,6 +4,7 @@ on: [push]
 
 jobs:
   build_n_deploy:
+    runs-on: [ubuntu-22.04]
     steps:
       - name: setup
         run: |
