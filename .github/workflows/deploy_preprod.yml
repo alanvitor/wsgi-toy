@@ -1,15 +1,20 @@
 name: Deploy PreProd
 
-on: workflow_dispatch
-  # push:
-  #   branches:
-  #     - preprod
+on:
+  # workflow_dispatch
+  push:
+    branches:
+      - preprod
 
 jobs:
   build_n_deploy:
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/preprod'
     steps:
+      - name: checkout
+        uses: actions/checkout@v2
+        with:
+          ref: preprod
       - name: setup
         run: |
           echo "Setup deploy from preprod"
