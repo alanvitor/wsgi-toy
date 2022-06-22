@@ -1,6 +1,7 @@
 name: Deploy PreProd
 
 on:
+  workflow_dispatch
   push:
     branches:
       - preprod
