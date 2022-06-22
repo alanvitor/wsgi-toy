@@ -1,0 +1,15 @@
+name: Deploy PreProd
+
+on: [push]
+
+jobs:
+  build_n_deploy:
+    runs-on: [ubuntu-22.04]
+    if: github.ref == 'refs/heads/preprod'
+    steps:
+      - name: setup
+        run: |
+          echo "Setup deploy from preprod"
+      - name: deploy
+        run: |
+          echo "Deploy from preprod"
